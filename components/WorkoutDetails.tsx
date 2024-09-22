@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FC, useState } from "react";
+import { FC } from "react";
 // import trash icon
 import { FaRegTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
@@ -20,8 +20,6 @@ interface WorkoutProps {
 const WorkoutDetails: FC<WorkoutProps> = ({ workout, onEdit }) => {
   const { dispatch } = useWorkoutsContext();
   const { state } = useAuthContext();
-  const [editselectedWorkout, setEditSelectedWorkout] =
-    useState<Workout | null>(null);
 
   const handleDelete = async () => {
     if (!state.user) {

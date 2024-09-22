@@ -1,7 +1,8 @@
-import { FormEvent, useState } from "react";
 import { useSignup } from "@/hooks/useSignup";
+import Link from "next/link";
+import { FormEvent, useState } from "react";
 
-const index = () => {
+const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { error, signup, isLoading } = useSignup();
@@ -37,9 +38,9 @@ const index = () => {
         <div>
           <p className="text-center">
             Already have an account?{" "}
-            <a href="/login">
+            <Link href="/login">
               <span className="hover:text-blue-500">Log in</span>
-            </a>
+            </Link>
           </p>
         </div>
       </form>
@@ -47,4 +48,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

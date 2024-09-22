@@ -1,9 +1,8 @@
 import { useLogin } from "@/hooks/useLogin";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
-import styles from "./index.module.css";
 
-const index = () => {
+const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { error, login, isLoading } = useLogin();
@@ -44,4 +43,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

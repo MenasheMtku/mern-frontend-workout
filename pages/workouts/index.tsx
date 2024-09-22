@@ -1,6 +1,6 @@
-import { use, useEffect, useState } from "react";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 // components
 import WorkoutDetails from "@/components/WorkoutDetails";

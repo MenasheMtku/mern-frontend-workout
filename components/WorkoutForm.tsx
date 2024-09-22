@@ -44,8 +44,8 @@ export default function WorkoutForm({
     }
   }, [selectedWorkout]);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     if (!state.user) {
       setError("You must be logged in to add a workout");
