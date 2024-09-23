@@ -26,14 +26,11 @@ const WorkoutDetails: FC<WorkoutProps> = ({ workout, onEdit }) => {
       return;
     }
     try {
-      await axios.delete(
-        `https://mern-backend-workout.onrender.com/api/workouts/${workout._id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${state.user.token}`,
-          },
-        }
-      );
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}${workout._id}`, {
+        headers: {
+          Authorization: `Bearer ${state.user.token}`,
+        },
+      });
       dispatch({ type: "DELETE_WORKOUT", payload: workout });
     } catch (error) {
       console.error("Error deleting workout:", error);

@@ -1,4 +1,5 @@
 import { useLogin } from "@/hooks/useLogin";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 
@@ -39,6 +40,14 @@ const Index = () => {
         Login
       </button>
       {error && <div className="error">{error}</div>}
+      <div>
+        <p className="text-center">
+          Don't have an account?{" "}
+          <Link href="/signup">
+            <span className="hover:text-blue-500">Sign up</span>
+          </Link>
+        </p>
+      </div>
     </form>
   );
 };

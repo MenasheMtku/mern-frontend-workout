@@ -1,14 +1,11 @@
 import { useAuthContext } from "@/hooks/useAuthContext";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
 // components
 import WorkoutDetails from "@/components/WorkoutDetails";
 import WorkoutForm from "@/components/WorkoutForm";
-
 // Workout interface
 import { Workout } from "@/types/Workout";
-
 // context hook
 import { useWorkoutsContext } from "@/hooks/useWorkoutContext";
 
@@ -27,7 +24,7 @@ export default function Workouts() {
     const fetchWorkouts = async () => {
       try {
         const response = await axios.get<Workout[]>(
-          "https://mern-backend-workout.onrender.com/api/workouts",
+          `${process.env.NEXT_PUBLIC_API_URL}api/workouts`,
           {
             headers: {
               Authorization: `Bearer ${state.user?.token}`,

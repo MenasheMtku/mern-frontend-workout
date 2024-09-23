@@ -10,13 +10,15 @@ export default function Home() {
     state: { user },
   } = useAuthContext();
 
+  console.log(`${process.env.NEXT_PUBLIC_API_URL}`);
+
   useEffect(() => {
     if (!user) {
-      router.push("/signup");
+      router.push("/login");
     }
     // Fetch data from the Node.js backend
     axios
-      .get("https://mern-backend-workout.onrender.com")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}`)
       .then(response => {
         setMessage(response.data.mssg);
         console.log(response.data.mssg);

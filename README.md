@@ -49,10 +49,11 @@ This project serves as the frontend for a web application. The client communicat
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/MenasheMtku/mern-frontend-workout.git
-   cd client
-   ```
+```bash
+  git clone https://github.com/MenasheMtku/mern-frontend-workout.git
+
+  cd client
+```
 
 2. Install dependencies:
 

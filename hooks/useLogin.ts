@@ -12,7 +12,7 @@ export const useLogin = () => {
 
     try {
       const response = await fetch(
-        "https://mern-backend-workout.onrender.com/api/user/login",
+        `${process.env.NEXT_PUBLIC_API_URL}api/user/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
