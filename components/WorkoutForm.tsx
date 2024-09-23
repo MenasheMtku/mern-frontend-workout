@@ -71,7 +71,7 @@ export default function WorkoutForm({
 
         console.log(selectedWorkout);
         response = await axios.put(
-          `http://localhost:8080/api/workouts/${selectedWorkout._id}`,
+          `https://mern-backend-workout.onrender.com/api/workouts/${selectedWorkout._id}`,
           workout,
           config
         );
@@ -80,7 +80,7 @@ export default function WorkoutForm({
       } else {
         // Add a new workout
         response = await axios.post(
-          "http://localhost:8080/api/workouts",
+          "https://mern-backend-workout.onrender.com/api/workouts",
           workout,
           config
         );

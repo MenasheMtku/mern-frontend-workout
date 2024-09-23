@@ -16,7 +16,7 @@ export default function Home() {
     }
     // Fetch data from the Node.js backend
     axios
-      .get("http://localhost:8080")
+      .get("https://mern-backend-workout.onrender.com")
       .then(response => {
         setMessage(response.data.mssg);
         console.log(response.data.mssg);

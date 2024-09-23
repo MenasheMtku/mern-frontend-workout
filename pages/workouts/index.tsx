@@ -27,7 +27,7 @@ export default function Workouts() {
     const fetchWorkouts = async () => {
       try {
         const response = await axios.get<Workout[]>(
-          "http://localhost:8080/api/workouts",
+          "https://mern-backend-workout.onrender.com/api/workouts",
           {
             headers: {
               Authorization: `Bearer ${state.user?.token}`,
