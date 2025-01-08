@@ -10,7 +10,7 @@ import { useAuthContext } from "@/hooks/useAuthContext";
 import { useWorkoutsContext } from "@/hooks/useWorkoutContext";
 
 // Workout interface
-import { Workout } from "@/types/Workout";
+import { Workout } from "@/types/";
 
 interface WorkoutProps {
   workout: Workout;
@@ -19,16 +19,18 @@ interface WorkoutProps {
 
 const WorkoutDetails: FC<WorkoutProps> = ({ workout, onEdit }) => {
   const { dispatch } = useWorkoutsContext();
-  const { state } = useAuthContext();
+  const {
+    state: { user },
+  } = useAuthContext();
 
   const handleDelete = async () => {
-    if (!state.user) {
+    if (!user) {
       return;
     }
     try {
       await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}${workout._id}`, {
         headers: {
-          Authorization: `Bearer ${state.user.token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       });
       dispatch({ type: "DELETE_WORKOUT", payload: workout });
@@ -42,22 +44,22 @@ const WorkoutDetails: FC<WorkoutProps> = ({ workout, onEdit }) => {
       <div key={workout._id} className="mb-2 p-3 bg-slate-200">
         <h4 className="font-semibold mb-2">{workout.title}</h4>
         <div className="flex justify-between items-end">
-          <div>
-            <p>
+          <ul>
+            <li>
               <a>Reps: </a>
               {workout.reps}
-            </p>
-            <p>
+            </li>
+            <li>
               <a>Load (kg): </a>
               {workout.load}
-            </p>
-            <p>
+            </li>
+            <li>
               <a>Created in: </a>
-              {formatDistanceToNow(new Date(workout.createdAt), {
+              {formatDistanceToNow(new Date(workout.createdAt ?? ""), {
                 addSuffix: true,
               })}
-            </p>
-          </div>
+            </li>
+          </ul>
           <div className="flex gap-6">
             <button
               className="bg-slate-600 text-white p-2 rounded-lg"

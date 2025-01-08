@@ -13,9 +13,9 @@ export default function Home() {
   console.log(`${process.env.NEXT_PUBLIC_API_URL}`);
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
+    if (!user) router.push("/login");
+    if (user) router.push("/workouts");
+
     // Fetch data from the Node.js backend
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}`)
